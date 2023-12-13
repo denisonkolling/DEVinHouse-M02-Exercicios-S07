@@ -26,9 +26,28 @@ public class Veiculo {
 
     private String cor;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "veiculo")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "veiculo")
     private List<Multa> multas;
 
 
+    @Override
+    public String toString() {
+        return "Veiculo{" +
+                "placa='" + placa + '\'' +
+                ", tipo=" + tipo +
+                ", nome='" + nome + '\'' +
+                ", anoFabricacao=" + anoFabricacao +
+                ", cor='" + cor + '\'' +
+                ", multas=" + multas +
+                '}';
+    }
+
+    public List<Multa> getMultas() {
+        return multas;
+    }
+
+    public void setMultas(List<Multa> multas) {
+        this.multas = multas;
+    }
 
 }

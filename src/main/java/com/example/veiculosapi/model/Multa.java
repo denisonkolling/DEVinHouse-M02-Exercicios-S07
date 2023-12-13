@@ -20,6 +20,17 @@ public class Multa {
 
     private String motivo;
 
+    @Override
+    public String toString() {
+        return "Multa{" +
+                "id=" + id +
+                ", local='" + local + '\'' +
+                ", motivo='" + motivo + '\'' +
+                ", valor=" + valor +
+                ", veiculo=" + veiculo +
+                '}';
+    }
+
     private Float valor;
 
     @ManyToOne

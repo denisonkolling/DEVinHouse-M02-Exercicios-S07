@@ -15,11 +15,14 @@ public class AlteracaoMulta {
     @PostConstruct
     public void alterarMulta() {
 
+        if (multaRepository.findById(3).isEmpty()) {
+            return;
+        }
+
         Multa multaDb = multaRepository.findById(3).get();
 
         multaDb.setValor(380F);
 
         multaRepository.save(multaDb);
-
     }
 }
