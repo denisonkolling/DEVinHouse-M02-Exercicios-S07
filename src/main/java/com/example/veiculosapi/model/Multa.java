@@ -1,7 +1,13 @@
 package com.example.veiculosapi.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "MULTAS")
 public class Multa {
@@ -20,4 +26,10 @@ public class Multa {
     @JoinColumn(name = "PLACA", referencedColumnName = "PLACA")
     private Veiculo veiculo;
 
+    public Multa(Veiculo veiculo, String motivo, String local, Float valor) {
+        this.veiculo = veiculo;
+        this.motivo = motivo;
+        this.local = local;
+        this.valor = valor;
+    }
 }
